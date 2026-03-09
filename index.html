@@ -29,6 +29,11 @@
         .settings { margin-top: 20px; padding-top: 15px; border-top: 1px dashed #ccc; text-align: left; font-size: 0.9rem; }
         input { width: 100%; padding: 8px; margin: 5px 0 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
     </style>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon"href="icon_192.png>
 </head>
 <body>
 
@@ -176,6 +181,11 @@
         myChart.data.datasets[0].data = Object.values(data.history);
         myChart.update();
     }
+
+    // サービスワーカーの登録
+　　  if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+  }
 </script>
 
 </body>
@@ -187,9 +197,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<script>
-  // サービスワーカーの登録
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
-  }
+
+
 </script>
